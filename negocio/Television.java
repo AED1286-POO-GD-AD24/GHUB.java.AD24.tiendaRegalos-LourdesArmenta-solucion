@@ -1,32 +1,29 @@
 package negocio;
 
 public class Television extends Producto {
-    private String tamaño;
-    private String resolución;
+    private String tamanio;
+    private String resolucion;
 
     // Ensure Producto class has a matching constructor
-    public Television(String nombre, double precio, String tamaño, String resolución) {
+    public Television(String nombre, double precio, String tamanio, String resolucion) {
         super(nombre, precio);
-        this.tamaño = tamaño;
-        this.resolución = resolución;
+        this.tamanio = tamanio;
+        this.resolucion = resolucion;
     }
     
-
-    
-
-    public String getTamaño() {
-        return tamaño;
+    public String getTamanio() {
+        return tamanio;
     }
 
-    public void setTamaño(String tamaño) {
-        this.tamaño = tamaño;
+    public void setTamanio(String tamanio) {
+        this.tamanio = tamanio;
     }
 
-    public String getResolución() {
-        return resolución;
+    public String getResolucion() {
+        return resolucion;
     }
 
-    public void setResolución(String resolución) {
-        this.resolución = resolución;
+    public void setResolucion(String resolucion) {
+        this.resolucion = resolucion;
     }
 }

@@ -6,8 +6,11 @@
 ./negocio/TiendaDeRegalosService.java
 ./negocio/Tostadora.java
 ./negocio/Producto.java
+./negocio/Inventario.java
 ./negocio/Licuadora.java
 ./negocio/Television.java
+./negocio/TiendaDeRegalos.java
 ./negocio/Libro.java
 ./negocio/Calculadora.java
 ./negocio/Celular.java
+./negocio/Proveedor.java
