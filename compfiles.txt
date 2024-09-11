@@ -1,2 +1,8 @@
 ./miPrincipal/Principal.java
+./datos/ProductoDAO.java
+./ui/TiendaDeRegalosUI.java
+./ui/Menu.java
 ./miTest/AppTest.java
+./negocio/TiendaDeRegalosService.java
+./negocio/Producto.java
+./negocio/Libro.java
