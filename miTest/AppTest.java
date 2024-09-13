@@ -392,4 +392,18 @@ class AppTest {
         assertEquals(14.39, calculadora.getPrecio(), 0.01);
     }
 
+    @Test
+    public void testSobrescrituraMetodoToString() {
+        // Crear una instancia de Producto
+        Producto producto = new Producto("Producto Genérico", 50.00);
+
+        // Crear una instancia de Tostadora
+        Tostadora tostadora = new Tostadora("Black & Decker", 50.00, 2, "plata");
+
+        // Verificar el método toString en Producto
+        assertEquals("Nombre: Producto Genérico, Precio: $50.0", producto.toString());
+
+        // Verificar el método toString en Tostadora
+        assertEquals("Nombre: Black & Decker, Precio: $50.0, Ranuras: 2, Color: plata", tostadora.toString());
+    }
 }

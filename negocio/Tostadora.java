@@ -28,7 +28,7 @@ public class Tostadora extends Producto {
 
     // Método que puede ser sobrescrito por las clases derivadas
     public String detallesProducto() {
-        return super.detallesProducto() + ", Número de ranuras: " + this.numRanuras + ", Color: " + this.color;
+        return super.detallesProducto() + ", Ranuras: " + this.numRanuras + ", Color: " + this.color;
        
     }
 
