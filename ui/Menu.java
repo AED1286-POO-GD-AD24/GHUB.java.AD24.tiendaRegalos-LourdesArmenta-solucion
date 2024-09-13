@@ -51,6 +51,9 @@ public class Menu {
                 case 7:
                     aplicarDescuento(scanner);
                     break;
+                case 8:
+                    calcularValorTotalProductos();
+                    break;
                 case 0:
                     System.out.println("Saliendo...");
                     break;
@@ -71,6 +74,7 @@ public class Menu {
         System.out.println("5. Vender Producto");
         System.out.println("6. Actualizar Precio");
         System.out.println("7. Aplicar Descuento");
+        System.out.println("8. Calcular valor total de productos");
         System.out.println("0. Salir");
         System.out.print("Seleccione una opción: ");
     }
@@ -184,5 +188,10 @@ public class Menu {
         scanner.nextLine(); // Consumir la nueva línea
 
         tiendaService.actualizarPrecio(nombre, nuevoPrecio);
+    }
+
+    private void calcularValorTotalProductos() {
+        double valorTotal = tiendaService.calcularValorTotalProductos();
+        System.out.println("Valor total de los productos en inventario: $" + valorTotal);
     }
 }

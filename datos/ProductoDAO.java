@@ -98,6 +98,10 @@ public class ProductoDAO {
     return lista;
     }
 
+    public Producto[] getProductos() {
+        return productos;
+    }
+
     public void actualizarProducto(Producto producto) {
         // En este ejemplo, no se necesita hacer nada porque estamos usando un arreglo en memoria
         // En una implementación real, aquí se actualizaría el producto en la base de datos

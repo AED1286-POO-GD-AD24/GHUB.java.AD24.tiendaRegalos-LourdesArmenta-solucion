@@ -5,6 +5,10 @@ public class TiendaDeRegalos{
     private String direccion;
     private Inventario inventario;
 
+    public TiendaDeRegalos(int capacidadInventario) {
+        this.inventario = new Inventario(capacidadInventario);
+    }
+
     public TiendaDeRegalos(String nombre, String direccion) {
         this.nombre = nombre;
         this.direccion = direccion;
@@ -18,6 +22,9 @@ public class TiendaDeRegalos{
     public void cumplirAños() {
         System.out.println(nombre + " está celebrando su aniversario!");
     }
+
+   
+
 
     public void agregarProducto(Producto producto) {
         inventario.agregarProducto(producto);
@@ -35,21 +42,26 @@ public class TiendaDeRegalos{
     }
 
     public Producto buscarProducto(String nombreProducto) {
-        List<Producto> productos = inventario.getProductos();
-        for (Producto producto : productos) {
-            if (producto.getNombre().equalsIgnoreCase(nombreProducto)) {
-                return producto;
-            }
+        Producto[] productos = inventario.getProductos();
+        for (int i = 0; i < productos.length; i++) {
+           if (productos[i] != null && productos[i].getNombre().equals(nombreProducto)) {
+            return productos[i];
+           }
         }
-        return null;
+        return null; // Devuelve null si no se encuentra el producto
     }
 
     public void listarProductos() {
-        List<Producto> productos = inventario.getProductos();
+        
+        Producto[] productos = inventario.getProductos();
+        
         System.out.println("Productos en inventario:");
-        for (Producto producto : productos) {
-            System.out.println("- " + producto.getNombre() + ": $" + producto.getPrecio());
+        for (int i = 0; i < productos.length; i++) {
+            if (productos[i] != null) {
+                System.out.println("- " + productos[i].getNombre() + ": $" + productos[i].getPrecio());
+            }
         }
+            
     }
 
     public void venderProducto(String nombreProducto) {
@@ -71,4 +83,9 @@ public class TiendaDeRegalos{
             System.out.println("Producto no encontrado: " + nombreProducto);
         }
     }
-}
+
+    public void calcularValorTotalProductos() {
+        double valorTotal = inventario.calcularValorTotalProductos();
+        System.out.println("Valor total de los productos en inventario: $" + valorTotal);
+    }
+} 

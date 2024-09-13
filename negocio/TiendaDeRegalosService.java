@@ -1,5 +1,6 @@
 package negocio;
 import datos.ProductoDAO;
+import negocio.Producto;
 public class TiendaDeRegalosService {
     private ProductoDAO productoDAO;
 
@@ -24,9 +25,12 @@ public class TiendaDeRegalosService {
     }
 
     public void listarProductos() {
-        for (Producto producto : productoDAO.listarProductos()) {
-            //System.out.println("- " + producto.getNombre() + ": $" + producto.getPrecio());
-            System.out.println( producto.toString());
+        Producto[] productos = productoDAO.getProductos();
+        System.out.println("Productos en inventario:");
+        for (Producto producto : productos) {
+            if (producto != null) {
+                System.out.println("- " + producto.getNombre() + ": $" + producto.getPrecio());
+            }
         }
     }
 
@@ -39,6 +43,8 @@ public class TiendaDeRegalosService {
             System.out.println("Producto no encontrado: " + nombreProducto);
         }
     }
+
+    
 
     public void actualizarPrecio(String nombreProducto, double nuevoPrecio) {
         Producto producto = buscarProducto(nombreProducto);
@@ -59,5 +65,16 @@ public class TiendaDeRegalosService {
         } else {
             System.out.println("Producto no encontrado: " + nombreProducto);
         }
+    }
+
+    public double calcularValorTotalProductos() {
+        Producto[] productos = productoDAO.getProductos();
+        double total = 0;
+        for (Producto producto : productos) {
+            if (producto != null) {
+                total += producto.getPrecio();
+            }
+        }
+        return total;
     }
 }

@@ -46,6 +46,17 @@ Al finalizar la práctica, deberás entregar un informe que incluya:
   - Un programa principal que demuestre el uso de la clase.
   - Una explicación de las decisiones de diseño tomadas.
 
+## * En la segunda para del ejercicio:*
+Vamos a crear una clase Inventario que gestione un arreglo de productos y permita realizar operaciones comunes como agregar productos, calcular el valor total del inventario y aplicar descuentos a todos los productos.
+Clase Producto: Define propiedades y métodos comunes para todos los productos, como nombre, precio, aplicarDescuento, y detallesProducto.
+Clase Inventario: Gestiona un arreglo de productos y permite agregar productos, calcular el valor total del inventario, aplicar descuentos a todos los productos y mostrar el inventario.
+Constructor: Inicializa el arreglo de productos con una capacidad fija.
+Método agregarProducto: Agrega un producto al arreglo si hay espacio disponible.
+Método calcularValorTotal: Calcula el valor total del inventario sumando los precios de todos los productos.
+Método aplicarDescuentoATodos: Aplica un descuento a todos los productos en el inventario.
+Método mostrarInventario: Muestra los detalles de todos los productos en el inventario.
+Clase Main: Crea instancias de diferentes productos, los agrega al inventario, aplica descuentos y muestra el inventario antes y después de aplicar los descuentos, así como el valor total del inventario.
+
 
 
 ## Diagrama de clases
@@ -87,10 +98,14 @@ classDiagram
         +void setDireccion(String direccion)
     }
     class Inventario {
-        -List~Producto~ productos
+        -Producto[] productos
+        -int contador
+        +Inventario(int capacidad)
         +void agregarProducto(Producto producto)
         +void eliminarProducto(Producto producto)
-        +List~Producto~ getProductos()
+        +double calcularValorTotal()
+        +void aplicarDescuentoATodos(double porcentaje)
+        +void mostrarInventario()
     }
 
     class Libro {
