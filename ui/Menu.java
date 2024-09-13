@@ -48,6 +48,9 @@ public class Menu {
                 case 6:
                     actualizarPrecio(scanner);
                     break;
+                case 7:
+                    aplicarDescuento(scanner);
+                    break;
                 case 0:
                     System.out.println("Saliendo...");
                     break;
@@ -67,6 +70,7 @@ public class Menu {
         System.out.println("4. Listar Productos");
         System.out.println("5. Vender Producto");
         System.out.println("6. Actualizar Precio");
+        System.out.println("7. Aplicar Descuento");
         System.out.println("0. Salir");
         System.out.print("Seleccione una opción: ");
     }
@@ -160,6 +164,16 @@ public class Menu {
         System.out.print("Ingrese el nombre del producto a vender: ");
         String nombre = scanner.nextLine();
         tiendaService.venderProducto(nombre);
+    }
+
+    private void aplicarDescuento(Scanner scanner) {
+        System.out.print("Ingrese el nombre del producto a aplicar descuento: ");
+        String nombre = scanner.nextLine();
+        System.out.print("Ingrese el porcentaje de descuento: ");
+        double porcentaje = scanner.nextDouble();
+        scanner.nextLine(); // Consumir la nueva línea
+
+        tiendaService.aplicarDescuento(nombre, porcentaje);
     }
 
     private void actualizarPrecio(Scanner scanner) {

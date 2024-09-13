@@ -75,6 +75,8 @@ classDiagram
         +void setNombre(String nombre)
         +double getPrecio()
         +void setPrecio(double precio)
+        +String detallesProducto()
+        +void aplicarDescuento(double porcentaje)
     }
     class Proveedor {
         -String nombre

@@ -23,4 +23,28 @@ public class Producto {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
+
+    // Método que puede ser sobrescrito por las clases derivadas
+    public void aplicarDescuento(double porcentaje) {
+        if (porcentaje > 0 && porcentaje <= 100) {
+            this.precio -= this.precio * (porcentaje / 100);
+        }
+    }
+
+    //@Override
+    //public String toString() {
+    //    return nombre + ": $" + precio;
+    //}
+
+    // Método que puede ser sobrescrito por las clases derivadas
+    public String detallesProducto() {
+        return "Nombre: " + nombre + ", Precio: $" + precio;
+    }
+
+    // Sobrescribir el método detallesProducto
+    @Override
+    public String toString() {
+        return detallesProducto();
+    }
+
 }

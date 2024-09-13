@@ -25,7 +25,8 @@ public class TiendaDeRegalosService {
 
     public void listarProductos() {
         for (Producto producto : productoDAO.listarProductos()) {
-            System.out.println("- " + producto.getNombre() + ": $" + producto.getPrecio());
+            //System.out.println("- " + producto.getNombre() + ": $" + producto.getPrecio());
+            System.out.println( producto.toString());
         }
     }
 
@@ -45,6 +46,16 @@ public class TiendaDeRegalosService {
             producto.setPrecio(nuevoPrecio);
             productoDAO.actualizarProducto(producto);
             System.out.println("Precio actualizado para " + nombreProducto + ": $" + nuevoPrecio);
+        } else {
+            System.out.println("Producto no encontrado: " + nombreProducto);
+        }
+    }
+    public void aplicarDescuento(String nombreProducto, double porcentaje) {
+        Producto producto = buscarProducto(nombreProducto);
+        if (producto != null) {
+            producto.aplicarDescuento(porcentaje);
+            productoDAO.actualizarProducto(producto);
+            System.out.println("Descuento aplicado a " + nombreProducto + ": " + porcentaje + "%");
         } else {
             System.out.println("Producto no encontrado: " + nombreProducto);
         }

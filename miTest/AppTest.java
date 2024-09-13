@@ -43,6 +43,26 @@ class AppTest {
     }
 
     @Test
+    public void testAplicarDescuentoHerenciaProducto() {
+        // Crear una instancia de Producto usando Libro
+        Producto producto = new Libro("El Quijote", 100.0, "Miguel de Cervantes", 500);
+
+        // Aplicar un descuento válido
+        producto.aplicarDescuento(20);
+        assertEquals(80.0, producto.getPrecio(), 0.01);
+
+        // Aplicar un descuento no válido
+        producto.aplicarDescuento(60);
+        assertEquals(80.0, producto.getPrecio(), 0.01); // El precio no debe cambiar
+
+        // Aplicar otro descuento válido
+        producto.aplicarDescuento(10);
+        assertEquals(72.0, producto.getPrecio(), 0.01);
+    }
+
+
+
+    @Test
     public void testLibro() {
         // Verificar que Libro es una subclase de Producto
         Libro libro = new Libro("Cien Años de Soledad", 29.99, "Gabriel Garcia Marquez", 500);
@@ -82,6 +102,24 @@ class AppTest {
         Libro libro = new Libro("Cien Años de Soledad", 29.99, "Gabriel Garcia Marquez", 500);
         assertTrue(libro instanceof Producto, "Libro debe ser una subclase de Producto");
 
+    }
+
+    @Test
+    public void testAplicarDescuentoHerenciaLibro() {
+        // Crear una instancia de Libro
+        Libro libro = new Libro("El Quijote", 100.0, "Miguel de Cervantes", 500);
+
+        // Aplicar un descuento válido
+        libro.aplicarDescuento(20);
+        assertEquals(80.0, libro.getPrecio(), 0.01);
+
+        // Aplicar un descuento no válido
+        libro.aplicarDescuento(60);
+        assertEquals(80.0, libro.getPrecio(), 0.01); // El precio no debe cambiar
+
+        // Aplicar otro descuento válido
+        libro.aplicarDescuento(10);
+        assertEquals(72.0, libro.getPrecio(), 0.01);
     }
 
     @Test
@@ -125,6 +163,24 @@ class AppTest {
     }
 
     @Test
+    public void testAplicarDescuentoHerenciaTelevision() {
+        // Crear una instancia de Television
+        Television tv = new Television("Samsung Smart TV", 500.0, "55 pulg", "4K");
+
+        // Aplicar un descuento válido
+        tv.aplicarDescuento(20);
+        assertEquals(400.0, tv.getPrecio(), 0.01);
+
+        // Aplicar un descuento no válido
+        tv.aplicarDescuento(50);
+        assertEquals(400.0, tv.getPrecio(), 0.01); // El precio no debe cambiar
+
+        // Aplicar otro descuento válido
+        tv.aplicarDescuento(10);
+        assertEquals(360.0, tv.getPrecio(), 0.01);
+    }
+
+    @Test
     public void testCelular() {
         // Prueba de getNombre
         Celular celular = new Celular("iPhone", 999.99, "Apple", "iOS");
@@ -162,6 +218,25 @@ class AppTest {
         assertTrue(celular instanceof Producto, "Celular debe ser una subclase de Producto");
 
     }
+
+    @Test
+    public void testAplicarDescuentoHerenciaCelular() {
+        // Crear una instancia de Celular
+        Celular celular = new Celular("iPhone 12", 1000.0, "Apple", "iOS");
+
+        // Aplicar un descuento válido
+        celular.aplicarDescuento(20);
+        assertEquals(800.0, celular.getPrecio(), 0.01);
+
+        // Aplicar un descuento no válido
+        celular.aplicarDescuento(50);
+        assertEquals(800.0, celular.getPrecio(), 0.01); // El precio no debe cambiar
+
+        // Aplicar otro descuento válido
+        celular.aplicarDescuento(10);
+        assertEquals(720.0, celular.getPrecio(), 0.01);
+    }
+
 
     @Test
     public void testLicuadora(){
@@ -243,6 +318,25 @@ class AppTest {
 
     }
 
+    @Test
+    public void testAplicarDescuentoHerenciaTostadora() {
+         // Crear una instancia de Tostadora
+         Tostadora tostadora = new Tostadora("Black & Decker", 29.99, 2, "plata");
+
+         // Aplicar un descuento válido
+         tostadora.aplicarDescuento(20);
+         assertEquals(23.992, tostadora.getPrecio(), 0.01);
+ 
+         // Aplicar un descuento no válido
+         tostadora.aplicarDescuento(95);
+         assertEquals(23.992, tostadora.getPrecio(), 0.01); // El precio no debe cambiar
+ 
+         // Aplicar otro descuento válido
+         tostadora.aplicarDescuento(10);
+         assertEquals(21.5928, tostadora.getPrecio(), 0.01);
+    }
+
+
 
     @Test
     public void testCalculadora() {
@@ -279,4 +373,23 @@ class AppTest {
 
 
     }
+
+    @Test
+    public void testAplicarDescuentoHerenciaCalculadora() {
+        // Crear una instancia de Calculadora
+        Calculadora calculadora = new Calculadora("Casio FX-991ES", 19.99, "Científica");
+
+        // Aplicar un descuento válido
+        calculadora.aplicarDescuento(20);
+        assertEquals(15.992, calculadora.getPrecio(), 0.01);
+
+        // Aplicar un descuento no válido
+        calculadora.aplicarDescuento(90);
+        assertEquals(15.992,calculadora.getPrecio(), 0.01); // El precio no debe cambiar
+
+        // Aplicar otro descuento válido
+        calculadora.aplicarDescuento(10);
+        assertEquals(14.39, calculadora.getPrecio(), 0.01);
+    }
+
 }
