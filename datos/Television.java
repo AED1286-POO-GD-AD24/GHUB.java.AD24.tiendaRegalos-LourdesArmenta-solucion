@@ -1,4 +1,4 @@
-package negocio;
+package datos;
 
 public class Television extends Producto {
     private String tamanio;

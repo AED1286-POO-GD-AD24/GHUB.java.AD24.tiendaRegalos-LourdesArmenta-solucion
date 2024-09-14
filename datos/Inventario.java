@@ -1,6 +1,5 @@
-package negocio;
-import java.util.ArrayList;
-import java.util.List;
+package datos;
+
 public class Inventario{
     
     private Producto[] productos;

@@ -1,6 +1,12 @@
 package negocio;
 import datos.ProductoDAO;
-import negocio.Producto;
+import datos.Producto;
+import datos.Libro;
+import datos.Celular;
+import datos.Television;
+import datos.Licuadora;
+import datos.Tostadora;
+import datos.Calculadora;
 public class TiendaDeRegalosService {
     private ProductoDAO productoDAO;
 
@@ -29,7 +35,8 @@ public class TiendaDeRegalosService {
         System.out.println("Productos en inventario:");
         for (Producto producto : productos) {
             if (producto != null) {
-                System.out.println("- " + producto.getNombre() + ": $" + producto.getPrecio());
+                //System.out.println("- " + producto.getNombre() + ": $" + producto.getPrecio());
+                System.out.println(producto);
             }
         }
     }
@@ -77,4 +84,35 @@ public class TiendaDeRegalosService {
         }
         return total;
     }
+
+    public void agregarLibro(String nombre, double precio, String titulo,String autor, int paginas) {
+        Libro libro = new Libro(nombre, precio, titulo, autor, paginas);
+        productoDAO.agregarProducto(libro);
+    }
+
+    public void agregarCelular(String nombre, double precio, String marca, String modelo) {
+        Celular celular = new Celular(nombre, precio, marca, modelo);
+        productoDAO.agregarProducto(celular);
+    }
+
+    public void agregarTelevision(String nombre, double precio, String tamanio, String resolucion) {
+        Producto producto = new Television(nombre, precio, tamanio, resolucion);
+        productoDAO.agregarProducto(producto);
+    }
+
+    public void agregarLicuadora(String nombre, double precio, int potencia, int capacidad) {
+        Producto producto = new Licuadora(nombre, precio, potencia, capacidad);
+        productoDAO.agregarProducto(producto);
+    }
+
+    public void agregarTostadora(String nombre, double precio, int ranuras, String color) {
+        Producto producto = new Tostadora(nombre, precio, ranuras, color);
+        productoDAO.agregarProducto(producto);
+    }
+
+    public void agregarCalculadora(String nombre, double precio, String tipo) {
+        Producto producto = new Calculadora(nombre, precio, tipo);
+        productoDAO.agregarProducto(producto);
+    }
+
 }

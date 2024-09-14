@@ -1,4 +1,4 @@
-package negocio;
+package datos;
 
 public class Calculadora extends Producto {
     private String tipo;

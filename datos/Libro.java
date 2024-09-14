@@ -1,14 +1,25 @@
-package negocio;
+package datos;
 public class Libro extends Producto {
+    private String titulo;
     private String autor;
     private int numPaginas;
 
-    public Libro(String nombre, double precio, String autor, int numPaginas) {
+    public Libro (String nombre, double precio, String titulo, String autor, int numPaginas) {
         super(nombre, precio);
+        this.titulo = titulo;
         this.autor = autor;
         this.numPaginas = numPaginas;
     }
+    
+    public String getTitulo() {
+        return titulo;
+    }
 
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    
     public String getAutor() {
         return autor;
     }
@@ -44,4 +55,7 @@ public class Libro extends Producto {
             System.out.println("Descuento no válido para el libro: " + getNombre() + ". El descuento debe ser entre 0% y 50%.");
         }
      }
+
+
+   
 }

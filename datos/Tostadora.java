@@ -1,4 +1,4 @@
-package negocio;
+package datos;
 
 public class Tostadora extends Producto {
     private int numRanuras;

@@ -1,20 +1,18 @@
 package miTest;
 
-import miPrincipal.*;
 import ui.Menu;
-import negocio.Producto;
-import negocio.Libro;
-import negocio.Television;
-import negocio.Celular; 
-import negocio.Licuadora;
-import negocio.Tostadora;   
-import negocio.Calculadora;
+import datos.Producto;
+import datos.Libro;
+import datos.Television;
+import datos.Celular; 
+import datos.Licuadora;
+import datos.Tostadora;   
+import datos.Calculadora;
 
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.beans.Transient;
 
 class AppTest {
 
@@ -45,7 +43,8 @@ class AppTest {
     @Test
     public void testAplicarDescuentoHerenciaProducto() {
         // Crear una instancia de Producto usando Libro
-        Producto producto = new Libro("El Quijote", 100.0, "Miguel de Cervantes", 500);
+        Producto producto = new Libro("Libro1", 100.0, "El Quijote", "Miguel de Cervantes ", 500);
+
 
         // Aplicar un descuento válido
         producto.aplicarDescuento(20);
@@ -65,14 +64,14 @@ class AppTest {
     @Test
     public void testLibro() {
         // Verificar que Libro es una subclase de Producto
-        Libro libro = new Libro("Cien Años de Soledad", 29.99, "Gabriel Garcia Marquez", 500);
+        Libro libro = new Libro("Libro1", 29.99, "Cien Años de Soledad", "Gabriel Garcia Marquez", 500);
 
         // Prueba de getNombre
-        assertEquals("Cien Años de Soledad", libro.getNombre(), "El nombre del libro debe ser 'Cien Años de Soledad'");
+        assertEquals("Libro1", libro.getNombre(), "El nombre del libro debe ser 'Libro1'");
 
         // Prueba de setNombre
-        libro.setNombre("El Amor en los Tiempos del Cólera");
-        assertEquals("El Amor en los Tiempos del Cólera", libro.getNombre(), "El nombre del libro debe ser 'El Amor en los Tiempos del Cólera' después de usar setNombre");
+        libro.setTitulo("El Amor en los Tiempos del Cólera");
+        assertEquals("El Amor en los Tiempos del Cólera", libro.getTitulo(), "El titulo del libro debe ser 'El Amor en los Tiempos del Cólera' después de usar setNombre");
 
         // Prueba de getPrecio
         assertEquals(29.99, libro.getPrecio(), "El precio del libro debe ser 29.99");
@@ -99,7 +98,7 @@ class AppTest {
     @Test
     public void testHerenciaProductoLibro() {
         // Verificar que Libro es una subclase de Producto
-        Libro libro = new Libro("Cien Años de Soledad", 29.99, "Gabriel Garcia Marquez", 500);
+        Libro libro = new Libro("Libro1", 29.99, "Cien Años de Soleda", "Gabriel Garcia Marquez", 500);
         assertTrue(libro instanceof Producto, "Libro debe ser una subclase de Producto");
 
     }
@@ -107,7 +106,7 @@ class AppTest {
     @Test
     public void testAplicarDescuentoHerenciaLibro() {
         // Crear una instancia de Libro
-        Libro libro = new Libro("El Quijote", 100.0, "Miguel de Cervantes", 500);
+        Libro libro = new Libro("Libro1", 100.0,"El Quijote", "Miguel de Cervantes", 500);
 
         // Aplicar un descuento válido
         libro.aplicarDescuento(20);
@@ -401,9 +400,9 @@ class AppTest {
         Tostadora tostadora = new Tostadora("Black & Decker", 50.00, 2, "plata");
 
         // Verificar el método toString en Producto
-        assertEquals("Nombre: Producto Genérico, Precio: $50.0", producto.toString());
+        assertEquals("Producto: Producto Genérico, Precio: $50.0", producto.toString());
 
         // Verificar el método toString en Tostadora
-        assertEquals("Nombre: Black & Decker, Precio: $50.0, Ranuras: 2, Color: plata", tostadora.toString());
+        assertEquals("Producto: Black & Decker, Precio: $50.0, Ranuras: 2, Color: plata", tostadora.toString());
     }
 }

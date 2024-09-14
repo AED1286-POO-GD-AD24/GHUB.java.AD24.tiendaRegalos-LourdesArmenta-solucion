@@ -1,4 +1,4 @@
-# Proyecto - Dando vida a los objetos de una tienda de regalos
+# Proyecto - Dando vida a los objetos de una tienda de regalos para la gestión de inventarios
 
 ## Objetivo General:
 Introducirte de manera práctica en los conceptos fundamentales de la programación orientada a objetos (POO).
@@ -7,6 +7,8 @@ Al realizar esta práctica, podrás:
 - Dominar atributos y métodos: Entenderás cómo definir las características (atributos) y comportamientos (métodos) de un objeto.
 - Practicar encapsulación: Aprenderás a proteger los datos internos de una clase y a proporcionar acceso controlado a ellos a través de métodos.
 - Aplicar conceptos básicos de POO: Refuerzarás tus conocimientos sobre conceptos como constructor, getters y setters.
+- Aplicar conceptos de relaciones entre clases
+- Aplicar conceptos de herencia y reutilización de métodos
 - Desarrollar habilidades de resolución de problemas: Pondrás en práctica tu capacidad para analizar un problema, diseñar una solución y traducirla a código.
 ## Objetivos Específicos:
 Modelar un concepto del mundo real: 
@@ -16,7 +18,41 @@ Modelar un concepto del mundo real:
 - Crear objetos: Instanciarás múltiples objetos de la clase Libro, cada uno representando a una libro diferente.
 - Interactuar con objetos: Utilizarás los métodos definidos para modificar y obtener información de los objetos.
 - Comprender el ciclo de vida de un objeto: Observar cómo se crean, modifican y destruyen los objetos durante la ejecución del programa.
+- Crear relaciones entre clases (asociación, agregación, composición y generalización)
+- Comprender la sobreescritura de métodos heredados
 - Escribir código limpio y legible: Utilizar buenas prácticas de programación como nombres descriptivos para variables y métodos, comentarios explicativos, y una estructura de código organizada.
+
+## Arquitectura de Tres Capas
+
+Este proyecto sigue una arquitectura de tres capas para asegurar una separación clara de responsabilidades y mejorar la mantenibilidad del código. Las tres capas son:
+
+### 1. Capa de Presentación (UI)
+La capa de presentación es responsable de interactuar con el usuario. Esta capa contiene las clases que manejan la interfaz de usuario y la lógica de presentación.
+
+- **Paquete**: `presentacion`
+- **Responsabilidades**:
+  - Capturar la entrada del usuario.
+  - Mostrar la salida al usuario.
+  - Interactuar con la capa de negocio para realizar operaciones.
+
+### 2. Capa de Negocio (Business Logic)
+La capa de negocio contiene la lógica de negocio de la aplicación. Esta capa actúa como intermediario entre la capa de presentación y la capa de datos.
+
+- **Paquete**: `negocio`
+- **Responsabilidades**:
+  - Implementar la lógica de negocio.
+  - Validar y procesar los datos.
+  - Coordinar las operaciones entre la capa de presentación y la capa de datos.
+
+### 3. Capa de Datos (Data Access) //PENDIENTE DE DESARROLLAR
+La capa de datos es responsable de la persistencia y recuperación de datos. Esta capa contiene las clases que representan las entidades de datos y las clases de acceso a datos (DAO).
+
+- **Paquete**: `datos`
+- **Responsabilidades**:
+  - Manejar la persistencia de datos.
+  - Proporcionar métodos para acceder y manipular los datos almacenados.
+
+
 
 ## Introducción:
 
@@ -27,8 +63,8 @@ Al finalizar esta práctica, deberás ser capaz de:
 - Utilizar los principios de encapsulación para proteger los datos internos de un objeto.
 - Crear e instanciar objetos de una clase.
 - Interactuar con los objetos mediante sus métodos.
-Desarrollo de la Práctica:
-En esta práctica, deberás:
+## Desarrollo de la Práctica:
+
 1. Definir la clase Libro, Televisión, Celular, Licuadora, Tostadora, Calculadora: 
  Identificar los atributos relevantes 
  Crear métodos para acceder y modificar estos atributos (getters y setters).
@@ -37,25 +73,35 @@ En esta práctica, deberás:
    o instanciar varios objetos de la clase Libro, Televisión, Celular, Tostadora y Calculadora con diferentes valores para sus atributos.
 3. Interactuar con los objetos: 
    o Utilizar los métodos definidos para realizar acciones con los objetos creados.
-4. Opcionalmente relaciones entre las clases como herencia(Producto-> Libro, Calculadora, etc.), 
+4. Definir la clase Producto y estudiar la relación con las clase creadas en el punto 1
+5. Definir las relaciones entre las clases como herencia(Producto-> Libro, Calculadora, etc.), 
    agregación(TiendaRegalos->Producto), asociación(Producto->Provedor) y composición(inventario->Producto)
-- **Entrega**:
-Al finalizar la práctica, deberás entregar un informe que incluya:
-  - El código fuente de las clases
+
+## Entregables:
+
+  - El código fuente de las clases en un repositorio
   - Un diagrama de clases UML con la representación de las clases y sus relaciones
   - Un programa principal que demuestre el uso de la clase.
   - Una explicación de las decisiones de diseño tomadas.
 
 ## * En la segunda para del ejercicio:*
-Vamos a crear una clase Inventario que gestione un arreglo de productos y permita realizar operaciones comunes como agregar productos, calcular el valor total del inventario y aplicar descuentos a todos los productos.
-Clase Producto: Define propiedades y métodos comunes para todos los productos, como nombre, precio, aplicarDescuento, y detallesProducto.
-Clase Inventario: Gestiona un arreglo de productos y permite agregar productos, calcular el valor total del inventario, aplicar descuentos a todos los productos y mostrar el inventario.
-Constructor: Inicializa el arreglo de productos con una capacidad fija.
-Método agregarProducto: Agrega un producto al arreglo si hay espacio disponible.
-Método calcularValorTotal: Calcula el valor total del inventario sumando los precios de todos los productos.
-Método aplicarDescuentoATodos: Aplica un descuento a todos los productos en el inventario.
-Método mostrarInventario: Muestra los detalles de todos los productos en el inventario.
-Clase Main: Crea instancias de diferentes productos, los agrega al inventario, aplica descuentos y muestra el inventario antes y después de aplicar los descuentos, así como el valor total del inventario.
+- Crear una clase Inventario que gestione un arreglo de productos y permita realizaroperaciones comunes como agregar productos, calcular el valor total del inventario y aplicar descuentos a todos los productos.
+
+- **Clase Producto**: Define propiedades y métodos comunes para todos los productos, como nombre, precio, aplicarDescuento, y detallesProducto.
+
+- **Clase Inventario**: Gestiona un arreglo de productos y permite agregar productos, calcular el valor total del inventario, aplicar descuentos a todos los productos y mostrar el inventario.
+
+- **Constructor**: Inicializa el arreglo de productos con una capacidad fija.
+
+- **Método agregarProducto**: Agrega un producto al arreglo si hay espacio disponible.
+
+- **Método calcularValorTotal**: Calcula el valor total del inventario sumando los precios de todos los productos.
+
+- **Método aplicarDescuentoATodos**: Aplica un descuento a todos los productos en el inventario.
+
+- **Método mostrarInventario**: Muestra los detalles de todos los productos en el inventario.
+
+- **Clase Main**: Crea instancias de diferentes productos, los agrega al inventario, aplica descuentos y muestra el inventario antes y después de aplicar los descuentos, así como el valor total del inventario.
 
 
 
@@ -109,12 +155,15 @@ classDiagram
     }
 
     class Libro {
+        -String titulo
         -String autor
         -int numPaginas
         +String getAutor()
         +void setAutor(String autor)
         +int getNumPaginas()
         +void setNumPaginas(int numPaginas)
+        +void setTiulo(String titulo)
+        +String getAutor()
     }
 
     class Televisión {

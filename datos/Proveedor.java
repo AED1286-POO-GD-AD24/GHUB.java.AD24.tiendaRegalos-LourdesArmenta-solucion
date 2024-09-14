@@ -1,4 +1,4 @@
-package negocio;
+package datos;
 public class Proveedor {
     private String nombre;
     private String direccion;

@@ -1,35 +1,33 @@
+package datos;
 
-package negocio;
+public class Licuadora extends Producto {
+    private int potencia;
+    private int capacidad;
 
-public class Celular extends Producto {
-    private String marca;
-    private String modelo;
-
-    public Celular(String nombre, double precio, String marca, String modelo) {
+    public Licuadora(String nombre, double precio, int potencia, int capacidad) {
         super(nombre, precio);
-        this.marca = marca;
-        this.modelo = modelo;
+        this.potencia = potencia;
+        this.capacidad = capacidad;
     }
 
-    public String getMarca() {
-        return marca;
+    public int getPotencia() {
+        return potencia;
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
+    public void setPotencia(int potencia) {
+        this.potencia = potencia;
     }
 
-    public String getModelo() {
-        return modelo;
+    public int getCapacidad() {
+        return capacidad;
     }
 
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
+    public void setCapacidad(int capacidad) {
+        this.capacidad = capacidad;
     }
-
     // Método que puede ser sobrescrito por las clases derivadas
     public String detallesProducto() {
-        return super.detallesProducto() + ", Marca: " + this.marca + ", Modelo: " + this.modelo;
+        return super.detallesProducto() + ", Potencia: " + this.potencia + "W, Capacidad: " + this.capacidad + "L";
        
     }
 
@@ -38,6 +36,7 @@ public class Celular extends Producto {
     public String toString() {
         return detallesProducto();
     }
+
 
     // Sobrescribir el método aplicarDescuento
     @Override

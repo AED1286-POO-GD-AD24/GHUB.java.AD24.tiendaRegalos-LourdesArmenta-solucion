@@ -1,5 +1,7 @@
 package negocio;
-import java.util.List;
+
+import datos.Inventario;
+import datos.Producto;
 public class TiendaDeRegalos{
     private String nombre;
     private String direccion;

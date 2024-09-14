@@ -2,13 +2,6 @@ package ui;
 
 import negocio.TiendaDeRegalosService;
 import datos.ProductoDAO;
-import negocio.Producto;
-import negocio.Libro;
-import negocio.Celular;
-import negocio.Television;
-import negocio.Licuadora;
-import negocio.Tostadora;
-import negocio.Calculadora;
 
 import java.util.Scanner;
 
@@ -97,23 +90,27 @@ public class Menu {
         double precio = scanner.nextDouble();
         scanner.nextLine(); // Consumir la nueva línea
 
-        Producto producto = null;
-
         switch (tipoProducto) {
             case 1:
+                System.out.print("Ingrese el titulo del libro: ");
+                String titulo= scanner.nextLine();
                 System.out.print("Ingrese el autor del libro: ");
                 String autor = scanner.nextLine();
                 System.out.print("Ingrese el número de páginas del libro: ");
                 int paginas = scanner.nextInt();
-                scanner.nextLine(); // Consumir la nueva línea
-                producto = new Libro(nombre, precio, autor, paginas);
+
+                tiendaService.agregarLibro(nombre, precio, titulo,autor, paginas);
+                System.out.println("Libro agregado exitosamente.");
+                
                 break;
             case 2:
                 System.out.print("Ingrese la marca del celular: ");
                 String marca = scanner.nextLine();
                 System.out.print("Ingrese el modelo del celular: ");
                 String modelo = scanner.nextLine();
-                producto = new Celular(nombre, precio, marca, modelo);
+                tiendaService.agregarCelular(nombre, precio, marca, modelo);
+                System.out.println("Celular agregado exitosamente.");
+                
                 break;
             case 3:
                 System.out.print("Ingrese el tamaño del televisor (en pulgadas): ");
@@ -121,8 +118,8 @@ public class Menu {
                 //scanner.nextLine(); // Consumir la nueva línea
                 System.out.print("Ingrese la resolución del televisor: ");
                 String resolucion = scanner.nextLine();
-
-                producto = new Television(nombre, precio, tamanio, resolucion);
+                tiendaService.agregarTelevision(nombre, precio, tamanio, resolucion);
+                System.out.println("Televisor agregado exitosamente.");
                 break;
             case 4:
                 System.out.print("Ingrese la potencia de la licuadora (en vatios): ");
@@ -131,27 +128,32 @@ public class Menu {
                 System.out.print("Ingrese la capacidad de la licuadora (en litros): ");
                 int capacidad = scanner.nextInt();
                 scanner.nextLine(); // Consumir la nueva línea
-                producto = new Licuadora(nombre, precio, potencia, capacidad);
+                tiendaService.agregarLicuadora(nombre, precio, potencia, capacidad);
+                System.out.println("Licuadora agregada exitosamente.");
+                
                 break;
             case 5:
                 System.out.print("Ingrese el número de ranuras de la tostadora: ");
                 int ranuras = scanner.nextInt();
                 scanner.nextLine(); // Consumir la nueva línea
                 String material = scanner.nextLine();
-                producto = new Tostadora(nombre, precio, ranuras, material);
+                tiendaService.agregarTostadora(nombre, precio, ranuras, material);
+                System.out.println("Tostadora agregada exitosamente.");
+               
                 break;
             case 6:
                 System.out.print("Ingrese el tipo de calculadora (científica, básica, etc.): ");
                 String tipo = scanner.nextLine();
-                producto = new Calculadora(nombre, precio, tipo);
+                tiendaService.agregarCalculadora(nombre, precio, tipo);
+                System.out.println("Calculadora agregada exitosamente.");
+               
                 break;
             default:
                 System.out.println("Tipo de producto no válido.");
                 return;
     }
 
-    tiendaService.agregarProducto(producto);
-    System.out.println("Producto agregado: " + producto.getNombre());
+   
     }
 
     private void eliminarProducto(Scanner scanner) {

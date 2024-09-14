@@ -1,4 +1,4 @@
-package negocio;
+package datos;
 public class Producto {
     private String nombre;
     private double precio;
@@ -38,7 +38,7 @@ public class Producto {
 
     // Método que puede ser sobrescrito por las clases derivadas
     public String detallesProducto() {
-        return "Nombre: " + nombre + ", Precio: $" + precio;
+        return "Producto: " + nombre + ", Precio: $" + precio;
     }
 
     // Sobrescribir el método detallesProducto
